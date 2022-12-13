@@ -3,7 +3,8 @@ public class SubArraysSum {
         int n=C.length;
         int max=Integer.MIN_VALUE;
         int sum=0;
-        int flag=0;
+        
+        // maxium sum possible which is <=B of all the sub-array sums
         // Maximum sum of the sub-array possible using brute force method T(n)=Theta(n^2)
         for(int s=0;s<n;s++)
         {
@@ -13,19 +14,20 @@ public class SubArraysSum {
                 sum=sum+C[e];
                 if(sum<=B)
                 {
-                    flag=1;
+  
                     max=Math.max(sum,max);
                 }
-                else break;
+            
             }
         }
-        return  flag==0?0:max;
+
+        return  max;
  
     }
     public static void main(String args[])
         {
             SubArraysSum S= new SubArraysSum();
-             int [] A ={2, 1, 3, 4, 5};
+             int [] A ={2, 1, 3, 4, 0};
              int R=S.maxSubarray(5,12,A);
              System.out.println(R);
         }
